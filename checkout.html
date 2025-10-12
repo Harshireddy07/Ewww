@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 100vh; background: #f7f7f7;
+      overflow: hidden; position: relative;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    form {
+      background: white; padding: 1.5rem;
+      border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex; flex-direction: column; gap: 0.75rem;
+      min-width: 250px;
+    }
+    input, button {
+      padding: 0.6rem; font-size: 1rem;
+      border-radius: 5px; border: 1px solid #ccc;
+    }
+    button {
+      background: #000; color: white; border: none;
+      cursor: pointer; transition: background 0.3s;
+    }
+    button:hover { background: #444; }
+    .doodle {
+      position: absolute;
+      opacity: 0.12;
+      animation: float 10s infinite ease-in-out;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(15deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Checkout</h1>
+  <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="text" placeholder="Address" required>
+    <button type="submit">Place Order</button>
+  </form>
+
+  <script>
+    function submitForm(e){
+      e.preventDefault();
+      window.location.href='thankyou.html';
+    }
+    const doodles = ['✿','★','✦','✺','○','◇'];
+    for (let i=0;i<10;i++){
+      const span=document.createElement('span');
+      span.className='doodle';
+      span.textContent=doodles[Math.floor(Math.random()*doodles.length)];
+      span.style.left=Math.random()*100+'vw';
+      span.style.top=Math.random()*100+'vh';
+      span.style.fontSize=20+Math.random()*40+'px';
+      span.style.animationDuration=7+Math.random()*5+'s';
+      document.body.appendChild(span);
+    }
+  </script>
+</body>
+</html>
