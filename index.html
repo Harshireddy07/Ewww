@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6PG1BXQW4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F6PG1BXQW4');
-</script>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Shop</title>
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
     body {
       font-family: 'Arial', sans-serif;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      min-height: 100vh; background: #fdfcfb;
-      overflow: hidden; position: relative;
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+      min-height: 100vh; 
+      background: #fdfcfb;
+      overflow: hidden; 
+      position: relative;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 1rem; z-index: 2; }
+    h1 { 
+      font-size: 2.5rem; 
+      margin-bottom: 1rem; 
+      z-index: 2; 
+    }
     button {
-      background: #000; color: #fff;
-      border: none; padding: 0.75rem 1.5rem;
-      font-size: 1rem; border-radius: 999px;
-      cursor: pointer; transition: background 0.3s;
+      background: #000; 
+      color: #fff;
+      border: none; 
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem; 
+      border-radius: 999px;
+      cursor: pointer; 
+      transition: background 0.3s;
       z-index: 2;
     }
-    button:hover { background: #444; }
+    button:hover { 
+      background: #444; 
+    }
     .doodle {
       position: absolute;
       opacity: 0.15;
@@ -53,24 +66,20 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57G7XSP4"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
   <h1>Welcome to Minimal Shop</h1>
   <button onclick="location.href='checkout.html'">Shop Now</button>
 
   <script>
     const doodles = ['◯','△','✦','✧','⬡','✺','★','✿'];
-    for (let i=0;i<15;i++){
-      const span=document.createElement('span');
-      span.className='doodle';
-      span.textContent=doodles[Math.floor(Math.random()*doodles.length)];
-      span.style.left=Math.random()*100+'vw';
-      span.style.top=Math.random()*100+'vh';
-      span.style.fontSize=20+Math.random()*50+'px';
-      span.style.animationDuration=8+Math.random()*5+'s';
-      span.addEventListener('click',()=>{ span.classList.add('clicked'); });
+    for (let i = 0; i < 15; i++) {
+      const span = document.createElement('span');
+      span.className = 'doodle';
+      span.textContent = doodles[Math.floor(Math.random() * doodles.length)];
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.top = Math.random() * 100 + 'vh';
+      span.style.fontSize = 20 + Math.random() * 50 + 'px';
+      span.style.animationDuration = 8 + Math.random() * 5 + 's';
+      span.addEventListener('click', () => { span.classList.add('clicked'); });
       document.body.appendChild(span);
     }
   </script>
